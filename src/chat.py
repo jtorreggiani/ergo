@@ -7,7 +7,7 @@ def run_repl():
     console.print("[bold green]📚 Wikipedia Vector Search REPL[/bold green]")
     console.print("Type your query or 'exit' to quit.\n")
     while True:
-        query = input(">").strip()
+        query = input("?> ").strip()
         if query.lower() in {"exit", "quit"}:
             console.print("Goodbye! 👋")
             break

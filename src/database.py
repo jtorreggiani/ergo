@@ -101,9 +101,14 @@ def delete_by_document_id(cur, document_id: str):
     Deletes all questions and knowledge_chunks associated with the given document_id.
     """
     # Delete questions first due to foreign key constraints
+    # query for questions by chunks with the given document_id
+    # and delete them
     cur.execute("""
         DELETE FROM questions
-        WHERE document_id = %s;
+        WHERE chunk_id IN (
+            SELECT id FROM knowledge_chunks
+            WHERE document_id = %s
+        );
     """, (document_id,))
 
     # Then delete chunks

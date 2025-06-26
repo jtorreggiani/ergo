@@ -22,7 +22,13 @@ class ChunkObject(BaseModel):
     statement: str
 
 class ChunkKnowledge(dspy.Signature):
-    """Break up the sentence into discrete chunks of knowledge that are 7 -+2 words long."""
+    """
+    Break up the sentence into discrete chunks of knowledge that are 7-10 words long.
+    If a sentence is an introduction sentence, always include a chunk
+    with a definitional statement and appropriate question/answer pair where
+    the question is in the form of "What is <term>?" and the answer is a definition
+    of the core term.
+    """
     sentence: str = dspy.InputField(desc="The sentence to break into chunks.")
     chunks: list[ChunkObject] = dspy.OutputField()
     confidence: float = dspy.OutputField()
