@@ -1,7 +1,7 @@
 import pytest
 from bs4 import BeautifulSoup
 
-from read_wikipedia import (
+from src.read_wikipedia import (
     collapse_adjacent_duplicate_citations,
     extract_embedded_citations,
     extract_ending_citations,

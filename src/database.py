@@ -1,25 +1,33 @@
+import os
 import sys
 import psycopg2
+from dotenv import load_dotenv
 
-DB_PARAMS = {
+load_dotenv()
+
+DATABASE_PARAMS = {
     "host":     "localhost",
-    "dbname":   "wikivector",
-    "user":     "jtorreggiani",
-    "password": ""
+    "dbname":   os.getenv("DATABASE_NAME"),
+    "user":     os.getenv("DATABASE_USER"),
+    "password": os.getenv("DATABASE_PASSWORD"),
 }
 
 def connect():
-    return psycopg2.connect(**DB_PARAMS)
+    """Establish a connection to the PostgreSQL database using psycopg2."""
+    return psycopg2.connect(**DATABASE_PARAMS)
 
 def create_vector_extension(cur):
+    """Create the vector extension if it does not already exist."""
     cur.execute("CREATE EXTENSION IF NOT EXISTS vector;")
 
 def drop_tables(cur):
+    """Drop all tables in the database."""
     cur.execute("DROP TABLE IF EXISTS chunk_relationships;")
     cur.execute("DROP TABLE IF EXISTS questions;")
     cur.execute("DROP TABLE IF EXISTS knowledge_chunks;")
 
 def create_tables(cur):
+    """Create the necessary tables for the knowledge base."""
     cur.execute("""
         CREATE TABLE knowledge_chunks (
             id SERIAL PRIMARY KEY,

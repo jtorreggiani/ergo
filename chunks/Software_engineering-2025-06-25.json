@@ -1,0 +1,135 @@
+{
+  "chunks": [
+    {
+      "question": "What is software engineering a branch of?",
+      "answer": "Software engineering is a branch of both computer science and engineering.",
+      "statement": "Software engineering is a branch of computer science and engineering.",
+      "section": "Introduction",
+      "paragraph": "Software engineering is a branch of both computer science and engineering focused on designing, developing, testing, and maintaining software applications . It involves applying engineering principles and computer programming expertise to develop software systems that meet user needs. [ 1 ] [ 2 ] [ 3 ] [ 4 ]",
+      "sentence": "Software engineering is a branch of both computer science and engineering focused on designing, developing, testing, and maintaining software applications .",
+      "citations": []
+    },
+    {
+      "question": "What does software engineering focus on?",
+      "answer": "Software engineering focuses on designing, developing, testing, and maintaining software applications.",
+      "statement": "Software engineering focuses on designing, developing, testing and maintaining software.",
+      "section": "Introduction",
+      "paragraph": "Software engineering is a branch of both computer science and engineering focused on designing, developing, testing, and maintaining software applications . It involves applying engineering principles and computer programming expertise to develop software systems that meet user needs. [ 1 ] [ 2 ] [ 3 ] [ 4 ]",
+      "sentence": "Software engineering is a branch of both computer science and engineering focused on designing, developing, testing, and maintaining software applications .",
+      "citations": []
+    },
+    {
+      "question": "What does software engineering involve?",
+      "answer": "Applying engineering principles and computer programming expertise.",
+      "statement": "Software engineering involves applying engineering principles and computer programming expertise.",
+      "section": "Introduction",
+      "paragraph": "Software engineering is a branch of both computer science and engineering focused on designing, developing, testing, and maintaining software applications . It involves applying engineering principles and computer programming expertise to develop software systems that meet user needs. [ 1 ] [ 2 ] [ 3 ] [ 4 ]",
+      "sentence": "It involves applying engineering principles and computer programming expertise to develop software systems that meet user needs.",
+      "citations": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "question": "What is the goal of software engineering?",
+      "answer": "To develop software systems that meet user needs.",
+      "statement": "The goal of software engineering is to develop software systems that meet user needs.",
+      "section": "Introduction",
+      "paragraph": "Software engineering is a branch of both computer science and engineering focused on designing, developing, testing, and maintaining software applications . It involves applying engineering principles and computer programming expertise to develop software systems that meet user needs. [ 1 ] [ 2 ] [ 3 ] [ 4 ]",
+      "sentence": "It involves applying engineering principles and computer programming expertise to develop software systems that meet user needs.",
+      "citations": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "question": "What do the terms programmer and coder imply?",
+      "answer": "The terms programmer and coder imply only the construction aspect of a typical software engineer workload.",
+      "statement": "The terms programmer and coder imply only the construction aspect of a typical software engineer workload.",
+      "section": "Introduction",
+      "paragraph": "The terms programmer and coder overlap software engineer , but they imply only the construction aspect of a typical software engineer workload. [ 5 ]",
+      "sentence": "The terms programmer and coder overlap software engineer, but they imply only the construction aspect of a typical software engineer workload.",
+      "citations": [
+        5
+      ]
+    },
+    {
+      "question": "How do the terms programmer and coder relate to software engineer?",
+      "answer": "The terms programmer and coder overlap with software engineer.",
+      "statement": "The terms programmer and coder overlap with the term software engineer.",
+      "section": "Introduction",
+      "paragraph": "The terms programmer and coder overlap software engineer , but they imply only the construction aspect of a typical software engineer workload. [ 5 ]",
+      "sentence": "The terms programmer and coder overlap software engineer, but they imply only the construction aspect of a typical software engineer workload.",
+      "citations": [
+        5
+      ]
+    },
+    {
+      "question": "What does a software engineer apply?",
+      "answer": "A software development process",
+      "statement": "A software engineer applies a software development process.",
+      "section": "Introduction",
+      "paragraph": "A software engineer applies a software development process , [ 1 ] [ 6 ] which involves defining, implementing , testing , managing , and maintaining software systems, as well as developing the software development process itself.",
+      "sentence": "A software engineer applies a software development process, [ 1 ] [ 6 ] which involves defining, implementing, testing, managing, and maintaining software systems, as well as developing the software development process itself.",
+      "citations": [
+        1,
+        6
+      ]
+    },
+    {
+      "question": "What does the software development process involve?",
+      "answer": "Defining, implementing, testing, managing, and maintaining software systems",
+      "statement": "The software development process involves defining, implementing, testing, managing, and maintaining software systems.",
+      "section": "Introduction",
+      "paragraph": "A software engineer applies a software development process , [ 1 ] [ 6 ] which involves defining, implementing , testing , managing , and maintaining software systems, as well as developing the software development process itself.",
+      "sentence": "A software engineer applies a software development process, [ 1 ] [ 6 ] which involves defining, implementing, testing, managing, and maintaining software systems, as well as developing the software development process itself.",
+      "citations": [
+        1,
+        6
+      ]
+    },
+    {
+      "question": "What else does a software engineer develop?",
+      "answer": "The software development process itself",
+      "statement": "A software engineer also develops the software development process itself.",
+      "section": "Introduction",
+      "paragraph": "A software engineer applies a software development process , [ 1 ] [ 6 ] which involves defining, implementing , testing , managing , and maintaining software systems, as well as developing the software development process itself.",
+      "sentence": "A software engineer applies a software development process, [ 1 ] [ 6 ] which involves defining, implementing, testing, managing, and maintaining software systems, as well as developing the software development process itself.",
+      "citations": [
+        1,
+        6
+      ]
+    },
+    {
+      "question": "When was software engineering first recognized as a separate field?",
+      "answer": "Beginning in the 1960s",
+      "statement": "Software engineering was recognized as a separate field beginning in the 1960s.",
+      "section": "History",
+      "paragraph": "Beginning in the 1960s, software engineering was recognized as a separate field of engineering .",
+      "sentence": "Beginning in the 1960s, software engineering was recognized as a separate field of engineering .",
+      "citations": []
+    },
+    {
+      "question": "What was software engineering recognized as in the 1960s?",
+      "answer": "a separate field of engineering",
+      "statement": "In the 1960s, software engineering was recognized as a separate field of engineering.",
+      "section": "History",
+      "paragraph": "Beginning in the 1960s, software engineering was recognized as a separate field of engineering .",
+      "sentence": "Beginning in the 1960s, software engineering was recognized as a separate field of engineering .",
+      "citations": []
+    },
+    {
+      "question": "What was seen as a struggle?",
+      "answer": "The development of software engineering",
+      "statement": "The development of software engineering was seen as a struggle.",
+      "section": "History",
+      "paragraph": "The development of software engineering was seen as a struggle. Problems included software that was over budget, exceeded deadlines, required extensive debugging and maintenance, and unsuccessfully met the needs of consumers or was never even completed.",
+      "sentence": "The development of software engineering was seen as a struggle.",
+      "citations": []
+    }
+  ]
+}

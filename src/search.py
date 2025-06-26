@@ -1,5 +1,5 @@
-from database import connect
-from embedding import create_embedding
+from src.database import connect
+from src.embedding import create_embedding
 
 
 def to_pgvector_literal(vec: list[float]) -> str:

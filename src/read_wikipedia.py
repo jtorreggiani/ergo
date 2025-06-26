@@ -1,16 +1,11 @@
 import os
 import sys
-import requests
-from bs4 import BeautifulSoup, NavigableString, Tag
 import re
 import json
-import nltk
-from nltk.tokenize.punkt import PunktSentenceTokenizer, PunktParameters
+import requests
+from bs4 import BeautifulSoup
+from src.sentence_parser import split_sentences
 from datetime import datetime
-
-punkt_param = PunktParameters()
-punkt_param.abbrev_types = set(['dr', 'vs', 'mr', 'mrs', 'prof', 'inc', 'al', 'u.s.', 'bce', 'ca'])
-sentence_splitter = PunktSentenceTokenizer(punkt_param)
 
 
 def collapse_adjacent_duplicate_citations(text):
@@ -39,6 +34,10 @@ def extract_sections(soup):
     }
 
     for element in elements:
+        klasses = element.get("class") or element.parent.get('class') or []
+        if any("sidebar" in klass for klass in klasses):
+            continue
+
         if element.name == "h2":
             if current_section["paragraphs"]:
                 sections.append(current_section)
@@ -49,15 +48,13 @@ def extract_sections(soup):
             }
         elif element.name in {"p", "ul", "ol"}:
             if element.name == "p":
-                # Skip if element parent is sidebar-list-content
-                if element.parent and element.parent.get("class") == ['sidebar-list-content', 'mw-collapsible-content']:
-                    continue
-
                 text = element.get_text(separator=' ')
                 formatted_text = re.sub(r'\s+', ' ', text).strip()
                 if formatted_text:
                     current_section["paragraphs"].append(formatted_text)
             else:
+                if element.find_parent("td") and element.find_parent("td").get("class") == ["sidebar-content"]:
+                    continue
                 list_items = element.find_all("li")
                 list_content = []
                 for item in list_items:
@@ -125,14 +122,22 @@ def main():
             # Skip exacty duplicate paragraphs
             if paragraph in seen_paragraphs:
                 continue
-            seen_paragraphs.add(paragraph)
+            if paragraph.strip() == "v t e":
+                continue
+            if not paragraph or paragraph.strip() == "":
+                continue
 
-            sentences = sentence_splitter.tokenize(paragraph)
+            paragraph = re.sub(r'\s+', ' ', paragraph).strip()
+
+            sentences = split_sentences(paragraph)
             # iterate over each with an index to be able to look up the next sentence
             for i, sentence_text in enumerate(sentences):
                 # This removes any leading citations from the sentence text.
                 sentence, _ = get_sentence_and_proceeding_citations(sentence_text)
                 next_sentence = None
+
+                if not sentence or sentence.strip() == "" or sentence_text.strip() == "":
+                    continue
 
                 next_index = i + 1
                 proceeding_citations = []
@@ -142,6 +147,7 @@ def main():
 
                 embedded_citations = extract_embedded_citations(sentence)
                 citations = embedded_citations + proceeding_citations
+                print(sentence)
                 record = {
                     "section": section["name"],
                     "paragraph": paragraph,
@@ -155,10 +161,10 @@ def main():
         "sentences": data_records,
     }
 
-    os.makedirs("data", exist_ok=True)
+    os.makedirs("raw_data", exist_ok=True)
     timestamp = datetime.now().strftime("%Y-%m-%d")
-    out_filename = f"data/{title.replace(' ', '_')}-{timestamp}.json"
-
+    out_filename = f"raw_data/{title.replace(' ', '_')}-{timestamp}.json"
+    data["created_at"] = timestamp
     with open(out_filename, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 

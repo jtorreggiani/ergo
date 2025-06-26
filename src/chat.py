@@ -1,5 +1,5 @@
 from rich.console import Console
-from search import search
+from src.search import search
 
 console = Console()
 
@@ -7,7 +7,7 @@ def run_repl():
     console.print("[bold green]📚 Wikipedia Vector Search REPL[/bold green]")
     console.print("Type your query or 'exit' to quit.\n")
     while True:
-        query = input("🔍 Enter your question (or 'exit'): ").strip()
+        query = input(">").strip()
         if query.lower() in {"exit", "quit"}:
             console.print("Goodbye! 👋")
             break

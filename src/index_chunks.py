@@ -1,12 +1,13 @@
 import os
 import sys
 import json
-from database import connect
-from embedding import create_embedding
 from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn
 import dspy
 from pydantic import BaseModel
 from dotenv import load_dotenv
+
+from src.database import connect
+from src.embedding import create_embedding
 
 load_dotenv()
 
@@ -80,7 +81,7 @@ def load_sentences(json_path: str):
     with open(json_path, encoding="utf-8") as f:
         data = json.load(f)
 
-    sentences = data.get("sentences", [])
+    chunks = data.get("chunks", [])
     total_chunks = 0
 
     # Get file base name for document_id
@@ -93,36 +94,40 @@ def load_sentences(json_path: str):
         TextColumn("{task.completed}/{task.total} sentences"),
         transient=True
     ) as progress:
-        task = progress.add_task("Processing sentences", total=len(sentences))
+        task = progress.add_task("Processing chunks", total=len(chunks))
 
         with connect() as conn:
-            with conn.cursor() as cur:
-                for item in sentences:
-                    original = item["sentence"]
-                    section = item.get("section")
-                    citations = item.get("citations", [])
+            with conn.cursor() as cursor:
+                for chunk in chunks:
+                    section   = chunk.get('section')
+                    original  = chunk.get('original_sentence')
+                    citations = chunk.get('citations', [])
+                    statement = chunk.get('statement')
+                    answer    = chunk.get('answer')
+                    emb_decl  = create_embedding(chunk['statement'])
+                    emb_ans   = create_embedding(chunk['answer'])
 
-                    result = chunk_knowledge(original)
+                    chunk_id = insert_knowledge_chunk(
+                        cursor,
+                        document_id,
+                        section,
+                        original,
+                        statement,
+                        answer,
+                        citations,
+                        emb_decl,
+                        emb_ans
+                    )
 
-                    for chunk in result.chunks:
-                        save_chunk_to_preview(item, chunk)
-
-                        emb_decl = create_embedding(chunk.statement)
-                        emb_ans  = create_embedding(chunk.answer)
-                        emb_q    = create_embedding(chunk.question)
-
-                        chunk_id = insert_knowledge_chunk(
-                            cur, document_id, section, original, chunk.statement,
-                            chunk.answer, citations, emb_decl, emb_ans
-                        )
-
-                        insert_question(cur, chunk_id, chunk.question, emb_q)
-                        total_chunks += 1
+                    question  = chunk.get('question')
+                    emb_q     = create_embedding(chunk['question'])
+                    insert_question(cursor, chunk_id, question, emb_q)
+                    total_chunks += 1
 
                     conn.commit()
                     progress.update(task, advance=1)
 
-    print(f"✅ Loaded {total_chunks} chunks from {len(sentences)} sentences.")
+    print(f"✅ Loaded {total_chunks} chunks from {len(chunks)} sentences.")
 
 # ---------- Entrypoint ----------
 
