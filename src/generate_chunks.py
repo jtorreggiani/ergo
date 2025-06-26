@@ -11,6 +11,13 @@ load_dotenv()
 MODEL = 'anthropic/claude-3-opus-20240229'
 API_KEY = os.getenv("ANTHROPIC_API_KEY")
 
+# Uncomment the following lines to use Ollama with a specific model
+# lm = dspy.LM(
+#     'ollama_chat/gemma3:latest',
+#     api_base='http://localhost:11434',
+#     api_key=''
+# )
+
 lm = dspy.LM(MODEL, api_key=API_KEY)
 dspy.configure(lm=lm)
 
