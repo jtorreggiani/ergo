@@ -36,7 +36,7 @@ Spaced Repetition (SR) is a learning technique that leverages the spacing effect
 
 SR attempts to address the "forgetting curve", which hypothesizes the decline of human memory retention over time. This curve shows how information is lost after a period of time when there is no attempt to retain it. This is related to the concept is the "strength of memory" that refers to the durability of memory traces in the brain. This decline in memory can partially be explain by natural process of Synaptic pruning in the brain where connections between neurons are eliminated, strengthening the most important connections.
 
-Applying this principle to Ergo, we seek to avoid the issues with overtraining models by incorporating a process analogous to spaced repetition to continuously evaluating the performance of queries on knowledge graphs as new information is added. This process can also identify when a source material has changed and needs to be re-evaluated, ensuring that the knowledge representation remains up-to-date and relevant.
+Applying this principle to Ergo, we seek to avoid the issues with overtraining models by incorporating a process analogous to spaced repetition to continuously evaluate the performance of queries on knowledge graphs as new information is added. This process can also identify when a source material has changed and needs to be re-evaluated, ensuring that the knowledge representation remains up-to-date and relevant.
 
 ## CORE DEPENDENCIES
 
