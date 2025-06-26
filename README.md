@@ -14,7 +14,7 @@ At its core, Ergo is built around breaking up knowledge into chunks according Wo
 
 **Incremental Reading**
 
-Incremental reading is a learning method where you maintain a collection of documents and read portions of multiple articles per session rather than reading linearly. Key points are converted into flashcards and learned through spaced repetition algorithms over time. The core idea of incremental reading is that the underlying knowledge is more important than the specific text, allowing you to focus on understanding and retaining the concepts rather than memorizing the exact wording.[1]
+Incremental reading is a learning method where you read small portions from multiple documents per session rather than completing texts linearly. Key concepts are extracted into flashcards and reviewed using spaced repetition algorithms. This approach prioritizes understanding and retaining the underlying knowledge over memorizing exact wording, focusing on conceptual grasp rather than sequential text completion.[1]
 
 **Chunking**
 
