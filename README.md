@@ -18,9 +18,7 @@ Incremental reading is a learning method where you read small portions from mult
 
 **Chunking**
 
-[Chunking](https://en.wikipedia.org/wiki/Chunking_(psychology)) a process by which individual pieces of information are bound together to create a meaningful whole in or memory. This technique is used to improve the efficiency of information processing and retention, and bypass capacity limits of working memory.
-
-Chunking has already been applied in Retrieval-Augmented Generation (RAG) systems. Please see the article [Breaking up is hard to do: Chunking in RAG applications](https://stackoverflow.blog/2024/12/27/breaking-up-is-hard-to-do-chunking-in-rag-applications/) for more about the current thinking around chunking data for RAG.
+[Chunking](https://en.wikipedia.org/wiki/Chunking_(psychology)) a process by which individual pieces of information are bound together to create a meaningful whole in or memory. This technique is used to improve the efficiency of information processing and retention, and bypass capacity limits of working memory. Chunking has already been applied in Retrieval-Augmented Generation (RAG) systems. Please see the article [Breaking up is hard to do: Chunking in RAG applications](https://stackoverflow.blog/2024/12/27/breaking-up-is-hard-to-do-chunking-in-rag-applications/) for more about the current thinking around chunking data for RAG.
 
 Some of the current approaches to chunking in RAG applications include:
 
