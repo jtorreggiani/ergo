@@ -104,11 +104,13 @@ python -m src.insert_chunks chunks/TITLE-YYYY-MM-DD.json
 
 ## QUERY THE DATABASE
 
-You can test natural language search queries on your database using the `chat.py` script. This script will allow you to ask questions about the knowledge stored in the database and return the top three most relevant chunks.
+You can test natural language search queries on your database using the `chat.py` script. This script starts a simple chat that allows you to ask questions about the knowledge stored in the database and return the top three most relevant chunks.
 
 ```bash
 python -m src.chat
 ```
+
+<img width="1277" alt="Screenshot 2025-06-26 at 3 45 38 PM" src="https://github.com/user-attachments/assets/7bfae842-47c0-4a5f-988f-064b54173063" />
 
 ## REFERENCES
 
